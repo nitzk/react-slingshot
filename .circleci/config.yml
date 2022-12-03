@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: npm -i
       - save_cache:
-          key: "npm-packages"
+          keys: "npm-packages"
           paths:
             - src/node_modules
       - run:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: "npm-packages"
+          keys: "npm-packages"
       - run: npm -i
       - run:
           name: test
@@ -34,7 +34,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: "npm-packages"
+          keys: "npm-packages"
       - run: npm -i
       - run:
           name: analyze
@@ -45,6 +45,8 @@ workflows:
     jobs:
       - build
       - test:
-          requires: build
+          requires:
+          - build
       - analyze:
-          requires: test
+          requires:
+          - test
