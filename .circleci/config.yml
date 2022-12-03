@@ -13,9 +13,7 @@ jobs:
             - "npm-packages"
           paths:
             - src/node_modules
-      - run:
-          name: build
-          command: npm run lint
+      - run: npm run lint
       
   test:
     docker:
