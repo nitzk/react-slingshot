@@ -9,8 +9,7 @@ jobs:
       - checkout
       - run: npm i
       - save_cache:
-          key:
-            - "npm-packages"
+          key: "npm-packages"
           paths:
             - src/node_modules
       - run: npm run lint
@@ -31,8 +30,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key:
-            - "npm-packages"
+          key: "npm-packages"
       - run: npm i
       - run: npm audit
           
